@@ -103,4 +103,64 @@ WIN_COMBINATIONS =[
       turn
     end
   end
+
+  def won?
+    # should return false if no win combination Present
+    # how do I access win combination?
+    # where is win combination?
+    # win combination is in my constant WIN_COMBINATIONS
+    # So how do I return WIN_COMBINATIONS as an array of indices?
+    # how do I get the actual values of the cells?
+    win_combo = nil
+    WIN_COMBINATIONS.each do |n|
+      win_combo = n
+      if @board[win_combo[0]] == "X" && @board[win_combo[1]] == "X" && @board[win_combo[2]] == "X"
+        return win_combo
+      elsif
+        @board[win_combo[0]] == "O" && @board[win_combo[1]] == "O" && @board[win_combo[2]] == "O"
+          return win_combo
+      end
+    end
+    nil
+  end
+
+# what qualifies as an in-progress game?
+# id there are blank spaces left
+# what qualifies as a draw?
+# if there are no blank spaces left
+  def full?
+    @board.all?{|occupied| occupied != " "}
+  end
+
+   def draw?
+      if won?
+        return false
+      elsif
+        full?
+        return true
+      else
+        false
+      end
+   end
+
+   def over?
+     if won? || full?
+       true
+     end
+   end
+
+# what qualifies as no winner?
+
+   def winner
+     if turn_count % 2 == 0
+       "O"
+     else
+       "X"
+     end
+     won?
+
+   end
+
+
+
 end
