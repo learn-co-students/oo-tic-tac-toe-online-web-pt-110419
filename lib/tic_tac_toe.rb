@@ -124,6 +124,7 @@ WIN_COMBINATIONS =[
 
    def play
      while !over? && !draw?
+      #  why doesn't over? == false && draw? == false work?
        turn
      end
      if won?
