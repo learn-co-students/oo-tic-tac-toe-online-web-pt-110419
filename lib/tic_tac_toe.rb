@@ -23,10 +23,42 @@ class TicTacToe
  end 
  
  def input_to_index(string)
-   string.to_i{|i| i=0}
-   #string.to_i-1
+  # string.to_i{|i| i=0}
+   string.to_i-1
  end  
  
+ def move(index, token = "X")
+   @board[index] = token
+ end 
+
+def position_taken?(index)
+  @board[index] != " "
+end 
+
+def valid_move?(index)
+  !position_taken?(index) && index.between?(0,8)
+end  
+
+def turn_count
+  @board.count {|x| x != " "}
+end
+
+def current_player
+  turn_count.even? ? "X" : "O"
+end   
+
+def turn
+  puts "Please enter 1 - 9"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(index)
+     token= current_player
+     move(index,token)
+  else
+    turn
+  end 
+  display_board
+end
 
 
 end
