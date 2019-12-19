@@ -61,6 +61,12 @@ def turn
 end
 
 def won?
+ # WIN_COMBINATIONS to_a 
+ 
+ # if won return the winning combo 
+ #else 
+ #returns winning combo for a win 
+  
 end
 
 
