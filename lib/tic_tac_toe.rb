@@ -1,3 +1,5 @@
+require"pry"
+
 class TicTacToe
   WIN_COMBINATIONS = [
     [0, 1, 2],
@@ -67,12 +69,26 @@ def won?
  #returns winning combo for a win 
  
  WIN_COMBINATIONS.any? do |combo|
- if  (@board[0])=="X" && (@board[1])=="X" && (@board[2])=="X"
-   return WIN_COMBINATIONS
- else
- false   
+  # binding.pry
+  if  (@board[combo[0]])=="X" && (@board[combo [1]])=="X" && (@board[combo[2]])=="X"
+   return combo
+   elsif  (@board[combo[0]])=="O" && (@board[combo [1]])=="O" && (@board[combo[2]])=="O"
+   return combo
+   else
+    false   
   end  
-end 
+ end 
 end 
 
+def full? 
+  @board.all? {|board| board != " " } 
+ # binding.pry
+  
+  #if WIN_COMBINATIONS.all? do |combinations|
+  #if #full board then = true 
+  #else 
+  #false 
+     #end   
+#end
+end 
 end
