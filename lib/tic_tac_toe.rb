@@ -84,11 +84,35 @@ def full?
   @board.all? {|board| board != " " } 
  # binding.pry
   
-  #if WIN_COMBINATIONS.all? do |combinations|
+  
   #if #full board then = true 
   #else 
   #false 
      #end   
 #end
 end 
+
+def draw?
+  full? && !won? 
+end 
+
+def over?
+  won? || draw?  
+end
+
+def winner 
+  if combo = won? 
+  @board[combo[0]]  
+ # binding.pry
+end 
+end 
+
+def play 
+  turn until over? 
+  
+   puts winner ? "Congratulations #{winner}!":"Cat's Game!"
+     
+end 
+
+
 end
