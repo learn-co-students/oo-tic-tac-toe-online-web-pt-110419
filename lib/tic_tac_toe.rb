@@ -62,12 +62,17 @@ end
 
 def won?
  # WIN_COMBINATIONS to_a 
- 
  # if won return the winning combo 
  #else 
  #returns winning combo for a win 
-  
-end
-
+ 
+ WIN_COMBINATIONS.any? do |combo|
+ if  (@board[0])=="X" && (@board[1])=="X" && (@board[2])=="X"
+   return WIN_COMBINATIONS
+ else
+ false   
+  end  
+end 
+end 
 
 end
